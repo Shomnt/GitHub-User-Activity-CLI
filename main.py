@@ -22,7 +22,6 @@ def print_activity(data: dict) -> None:
         if not activity.get(event["type"], False):
             activity[event["type"]] = dict()
         activity[event["type"]][event["repo"]["name"]] = activity[event["type"]].get(event["repo"]["name"], 0) + 1
-    print(activity)
 
     for key in activity.keys():
         match key:
