@@ -6,10 +6,11 @@ def get_activity(username: str) -> dict:
         data = requests.get(f'https://api.github.com/users/{username}/events')
     except requests.exceptions.RequestException as e:
         print("Something went wrong")
+        sys.exit(1)
 
     if data.status_code != 200:
         print(f'User with username {username} not found or user has no events')
-        return
+        sys.exit(1)
 
     return data.json()
 
